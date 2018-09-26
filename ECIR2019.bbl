@@ -1,0 +1,68 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{Asheghi2015}
+Asheghi, N.R.: Human Annotation and Automatic Detection of Web Genres. Ph.D.
+  thesis, University of Leeds (2015)
+
+\bibitem{meyer2004genre}
+Meyer~zu Eissen, S., Stein, B.: Genre classification of web pages. KI 2004:
+  Advances in Artificial Intelligence pp. 256--269 (2004)
+
+\bibitem{joho2004spirit}
+Joho, H., Sanderson, M.: The spirit collection: an overview of a large web
+  collection. In: ACM SIGIR Forum. vol.~38, pp. 57--61. ACM (2004)
+
+\bibitem{kanaris2009learning}
+Kanaris, I., Stamatatos, E.: {Learning to recognize webpage genres}.
+  Information Processing \& Management  \textbf{45}(5),  499--512 (2009)
+
+\bibitem{koppel2011authorship}
+Koppel, M., Schler, J., Argamon, S.: Authorship attribution in the wild.
+  Language Resources and Evaluation  \textbf{45}(1),  83--94 (2011)
+
+\bibitem{koppel2014determining}
+Koppel, M., Winter, Y.: Determining if two documents are written by the same
+  author. Journal of the Association for Information Science and Technology
+  \textbf{65}(1),  178--187 (2014)
+
+\bibitem{mehler2010genres_on_web}
+Mehler, A., Sharoff, S., Santini, M.: Genres on the Web: Computational Models
+  and Empirical Studies. Text, Speech and Language Technology, Springer (2010)
+
+\bibitem{mendesjunior2016}
+Mendes~J{\'u}nior, P.R., de~Souza, R.M., Werneck, R.d.O., Stein, B.V.,
+  Pazinato, D.V., de~Almeida, W.R., Penatti, O.A., Torres, R.d.S., Rocha, A.:
+  Nearest neighbors distance ratio open-set classifier. Machine Learning pp.
+  1--28 (2016)
+
+\bibitem{pritsos2018open}
+Pritsos, D., Stamatatos, E.: Open set evaluation of web genre identification.
+  Language Resources and Evaluation pp. 1--20 (2018)
+
+\bibitem{pritsos2013open}
+Pritsos, D.A., Stamatatos, E.: Open-set classification for automated genre
+  identification. In: Advances in Information Retrieval, pp. 207--217. Springer
+  (2013)
+
+\bibitem{santini2007automatic}
+Santini, M.: Automatic identification of genre in web pages. Ph.D. thesis,
+  University of Brighton (2007)
+
+\bibitem{scholkopf1999estimating}
+Scholkopf, B., Platt, J., Shawe-Taylor, J., Smola, A., Williamson, R.:
+  {Estimating the support of a high-dimensional distribution}. Technical Report
+  MSR-TR-99-87  (1999)
+
+\bibitem{sharoff2010web}
+Sharoff, S., Wu, Z., Markert, K.: The web library of babel: evaluating genre
+  collections. In: Proceedings of the Seventh Conference on International
+  Language Resources and Evaluation. pp. 3063--3070 (2010)
+
+\bibitem{Sharroff2010}
+Sharoff, S., Wu, Z., Markert, K.: The web library of babel: evaluating genre
+  collections. In: LREC. Citeseer (2010)
+
+\end{thebibliography}

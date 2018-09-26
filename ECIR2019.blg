@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ECIR2019.aux
+The style file: splncs04.bst
+Database file #1: ECIR2019.bib
+Warning--can't use both volume and number fields in joho2004spirit
+You've used 14 entries,
+            2850 wiz_defined-function locations,
+            679 strings with 6810 characters,
+and the built_in function-call counts, 7721 in all, are:
+= -- 647
+> -- 228
+< -- 13
++ -- 97
+- -- 80
+* -- 465
+:= -- 993
+add.period$ -- 19
+call.type$ -- 14
+change.case$ -- 87
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 697
+empty$ -- 702
+format.name$ -- 92
+if$ -- 1689
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 136
+newline$ -- 48
+num.names$ -- 28
+pop$ -- 270
+preamble$ -- 1
+purify$ -- 68
+quote$ -- 0
+skip$ -- 214
+stack$ -- 0
+substring$ -- 439
+swap$ -- 365
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 54
+warning$ -- 1
+while$ -- 69
+width$ -- 16
+write$ -- 147
+(There was 1 warning)
