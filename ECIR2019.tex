@@ -73,6 +73,10 @@ Web genre detection is a task that can enhance information retrieval systems by 
 %
 %Concerning the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision %trees, neural networks, naive Bayes, Random Forests, etc. are used \citep{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of %noise, in a clustering framework described in \citep{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most %common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of %all other predefined categories plus the noise \citep{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label %and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. More concrete open-set %classification models for WGI were presented in \citep{stubbe2007genre,pritsos2013open}. However, these models were only tested in noise-free corpora \citep{pritsos2015clef}. More %recently, Asheghi \citep{Asheghi2015} showed that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora.
 
+\section{Distributional Features Learning}\label{sec:Gensim}
+
+Gensim description of my methods (see HTML2VEC)
+
 \section{Open-set Classification Methods}\label{sec:Open-set_methods}
 
 \subsection{Nearest Neighbors Distance Ratio}\label{sec:NNRD_Description}
@@ -88,9 +92,9 @@ The NNRD algorithm is an extension of the simple \textit{Nearest Neighbors} NN a
 \noindent
 where $A_{KS}$ is the \textit{Known Samples Accuracy} and $A_{MUS}$ is the \textit{Marked as Unknown Samples Accuracy}. The balance parameters \lambda regulates the mistakes trade-off on the known and marked-unknown samples prediction.
 
-The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \notequal c_{b}$, where $c_{y}$ is the sample's class.
+The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \notequal c_{b}$, where $c_{g}$ is the sample's class.
 
-It is very important to note that the $c_{y}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $y \in {1,2,...,N}$ and $y = 0$ when samples is marked as unknown.
+It is very important to note that the $c_{g}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $g \in {1,2,...,N}$ and $g = \emptyset$ when samples is marked as unknown.
 
 \begin{equation} \label{eq:DR}
     DR = \frac{D(r_{x}, s_{c_{a}})}{D(r_{x}, s_{c_{b}})}
@@ -104,74 +108,102 @@ Therefore, the fitting function of the NN algorithm, described in pseudocode \re
 
 \begin{algorithm}[H]
 \caption{\textit{Nearest Neighbor Distance Ratio} training data fitting function}\label{alg:NNDR_fitting}
-\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
-		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
-		 $F$ the feature set,
-		 $fs$ a fraction of feature set size,
-		 $I$ a number of iterations,
-		 $\boldsymbol\sigma$ the decision threshold }
-\KwResult{ $r \in \{G,\,\emptyset\}$ }
-\For{each $g \in G$}{
-  $centroid[g] = average(W_{g},F)$, average all known web-pages $W_{g}$ of genre $g$ to build a centroid vector\;
-  $score[g]=0$\;
+\KwData{$G$ the set of genre class tags $\{1,2,...,N\}$,
+        $p$ the hyper-parameter regulates the percentage of $G$ tags will be marked as unknown,
+        $k$ the hyper-parameter regulates the percentage of known $G$ tags that will be keept for validation only,
+        $T$ the \textit{Distance Ratio} thresholds set than will test for finding the one which is minimizing the \textit{Normalized Accuracy},
+        $\lambda$ regulates the mistakes trade-off on the known and marked-unknown samples prediction (see eq.\ref{eq:DR}),
+        $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$}
+\KwResult{$DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithm's fitting function, $C[g]$}
+
+$K^{G}_i, K^{G}_{validation}_i, U^{G}_{validation}_i, I^{G} = Split(G,p,k)$ splitting the $G$ tags in to known/unknown samples combinations using the $p$ and $k$ hyper-parameters. The amount of split combinations is calculated by the equations \ref{eq:splt_percent} and \ref{eq:splt}.\;
+
+$V^{G} = U^{G}_{validation} \cup K^{G}_{validation}$ the validation set is the union of the $I$ splits of the known-validation and the marked-as-unknown sets, of the whole training set\;
+
+\For{each $i \in I$}{
+    $D^{cos}_{VK}[i] = COS_{D}(V^{G}_i, K^{G}_i)$ calculating all the Cosine Distances between the web-page of $K^{G}$ and $V^{G}$ sets for \textit{every $I$ split combination};
 }
-\Repeat{$I$ times}{
-    $f = subset(F,WEDGIEGIE$, Randomly choose $fs$ features from the full feature set $F$\;
-    \For{each $g$ in $G$}{
-        \For{each $w$ in $W_{a}$}{
-    	   $sim[g, w] = similarity(w, centroid(g), f)$, estimate similarity of unknown page $w$ with $centroid(g)$ in vector space $f$\;
+
+$Ci^{min}_{A} = argmin(D^{cos}_{VK})$ getting the indices of the closest classes from $V$\;
+$Ci^{min}_{B} = argmin(D^{cos}_{VK})$ getting the indices of the \textit{second closest} classes from $V$\;
+
+$R_{V} = D^{cos}_{VK}[Di^{min}_{A}] / D^{cos}_{VK}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for all the vectors in $V$
+
+$NA^{max} \gets 0$ initializing \textit{Maximized Normalized Accuracy} with $0$ value.
+$DRT \gets 0$ initializing \textit{Distance Ratio Threshold} with $0$ value.
+
+\For{each $drt \in T$}{
+
+    \For{each $r, i \in \{R_{V}, count(R_{V})\}$}{
+
+        \eIf{$r < drt$}{
+            $vi = Ci^{min}_{A}[i]$ keep the respective index\;
+            $Y[i] = G[vi]$ setting the genre's class tag as prediction for this random vector of set $V$\;
         }
+        {
+            $Y[i] = \emptyset$ setting as none of the known genres or "I don't know"\;
+        }
+
     }
-   	$maxg = argmax_{g \in G}(sim[:, :])$, find the top match genre\;
-   	$score(maxg) = score(maxg) + 1$, increase the score of top match genre\;
+
+    $NA_{V} = NormalizedAccuracy(Y, R_{V})$ calculating the Normalized Accuracy as shown in equation \ref{eq:NA} for tested threshold $drt$\;
+
+    \eIf{$NA_{V} > NA^{max}$}{
+        $NA^{max} \gets NA_{V}$ keeping the maximum $NA$ until the outer for-loop finishes;
+        $DRT \gets drt$ keeping the \textit{Distance Ratio Threshold} maximizes the \textit{Normalized Accuracy};
+    }
+
 }
 
-
-\eIf{$max(score(g))/I > \boldsymbol\sigma$}{
-   $r = argmax_{g \in G}(score(g))$, assign the unknown page to genre with maximum top matches\;
-}
-{
-      $r = \emptyset$, none of the known genres or "I don't know"\;
-}
 \end{algorithm}
-
 In the optimization procedure the training samples are splited based on their class tags $c_{x}$. Then some class tags are \textit{marked as unknown} and some are left being known. Therefore, all the samples of the marked as unknown are used only in the validation subset while the known class tags samples are farther splited into the classes sets (one for each class) and into the known validation set. Then, samples of the validation sets, both then known and then marked as unknown, are used seamlessly for calculating the set of Distance Rations (one for each class). Afterwards, a set of DRT values are tested given a range of values $R \in {t_{1}, t_{2}, t_{n}}$ beforehand where the $t_{x}$ is selected which is maximizing the NA of the validation set.
+
+The splitting procedure the of the training set is regulated by a hyper-parameter $p$ which defines the percentage of the class tags set $g \in {1,2,...,N}$ where they will be marked as unknown. Then the total number of all possible splitting combination are calculated and these split-sets are used for finding the DRT. The combination are found using equations \ref{eq:splt_percent} and \ref{eq:splt}, where eq.\ref{eq:splt} is the \textit{Binomial Coefficient}.
+
+\begin{equation} \label{eq:splt_percent}
+    U_{num} = int(N * p)
+\end{equation}
+
+\noindent
+where $N$ is the size of the class tags set ${1,2,...,N}$ and $p$ is the percentage regulation paramter for keeping the number of tags to be marked as unknown.
+
+\begin{equation} \label{eq:splt}
+    S_{num} = \frac{N!}{U_{num}!(N-U_{num})!}
+\end{equation}
 
 The NNDR is a open-set classification algorithm, therefore, every random sample will be classified to one of the classes the NNRD has been fitted or to the unknown when its DR is greater then DRT. While training as explained above the DRT values are tested incrementally until the optimal data fitting for the training function.
 
-In prediction phase the DRT is passed to the NNDR prediction function toghether with the random samples and the training samples as shown in pheudocode \ref{alg:NNDR_prediction}.
+In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in pheudocode \ref{alg:NNDR_prediction}.
 
 \begin{algorithm}[H]
 \caption{\textit{Nearest Neighbor Distance Ratio} prediction function}\label{alg:NNDR_prediction}
-\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
-		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
-		 $F$ the feature set,
-		 $fs$ a fraction of feature set size,
-		 $I$ a number of iterations,
-		 $\boldsymbol\sigma$ the decision threshold }
-\KwResult{ $r \in \{G,\,\emptyset\}$ }
+\KwData{ $W$ the vector set of the random web-page to be classified,
+         $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$,
+		 $DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithms fitting function}
+\KwResult{ $Y \in \{G,\,\emptyset\}$,
+           $R$ the Distance Ratio scores vector, one score for every input vector of the random set $W$}
+
 \For{each $g \in G$}{
-  $centroid[g] = average(W_{g},F)$, average all known web-pages $W_{g}$ of genre $g$ to build a centroid vector\;
-  $score[g]=0$\;
+    $D^{cos}_{C_{g}X} = COS_{D}(C[g], X)$ calculating all the Cosine Distances between the random web-page vectors and the class vectors of class $g$\;
 }
-\Repeat{$I$ times}{
-    $f = subset(F,WEDGIEGIE$, Randomly choose $fs$ features from the full feature set $F$\;
-    \For{each $g$ in $G$}{
-        \For{each $w$ in $W_{a}$}{
-    	   $sim[g, w] = similarity(w, centroid(g), f)$, estimate similarity of unknown page $w$ with $centroid(g)$ in vector space $f$\;
-        }
+
+$Ci^{min}_{A} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the closest classes from $W$\;
+$Ci^{min}_{B} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the \textit{second closest} classes from $W$\;
+
+$R_{W} = D^{cos}_{C_{g}W}[Di^{min}_{A}] / D^{cos}_{C_{g}W}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for all the vectors in $W$
+
+\For{each $r, i \in \{R_{W}, count(R_{W})\}$}{
+
+    \eIf{$r < DRT$}{
+        $vi = Ci^{min}_{A}[i]$ keep the respective index\;
+        $Y[i] = G[vi]$ setting the genre's class tag as predicition for this random vector fo set $W$\;
     }
-   	$maxg = argmax_{g \in G}(sim[:, :])$, find the top match genre\;
-   	$score(maxg) = score(maxg) + 1$, increase the score of top match genre\;
+    {
+        $Y[i] = \emptyset$ setting as none of the known genres or "I don't know"\;
+    }
+
 }
 
-
-\eIf{$max(score(g))/I > \boldsymbol\sigma$}{
-   $r = argmax_{g \in G}(score(g))$, assign the unknown page to genre with maximum top matches\;
-}
-{
-      $r = \emptyset$, none of the known genres or "I don't know"\;
-}
 \end{algorithm}
 
 

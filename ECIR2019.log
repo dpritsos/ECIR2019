@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  26 SEP 2018 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  27 SEP 2018 20:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -973,17 +973,14 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algobox=\box79
 ) (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux
 
-LaTeX Warning: Label `alg:NNDR_fitting' multiply defined.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:68: Package natbib Error: Bibliography not compatible with author-year citations.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:72: Package natbib Error: Bibliography not compatible with author-year citations.
 (natbib)                Press <return> to continue in numerical citation style.
 
 See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.72 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -1111,37 +1108,33 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
-
-
-LaTeX Warning: Reference `alg:NNRD_fitting' on page 1 undefined on input line 82.
-
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:89: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:93: Missing $ inserted.
 <inserted text> 
                 $
-l.89 ... Accuracy}. The balance parameters \lambda
+l.93 ... Accuracy}. The balance parameters \lambda
                                                    regulates the mistakes tr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:90: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:94: Missing $ inserted.
 <inserted text> 
                 $
-l.90 
+l.94 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (52.22137pt too wide) in paragraph at lines 88--90
+Overfull \hbox (52.22137pt too wide) in paragraph at lines 92--94
 \OT1/ptm/m/it/10 ples Ac-cu-racy\OT1/ptm/m/n/10 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/10 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/10 ^^@ \OML/ztmcm/m/it/10 offontheknownandmarked \OMS/ztmcm/m/n/10 ^^@
  []
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:91: Undefined control sequence.
-l.91 ...e $r_{x}$ under constrain $c_{a} \notequal
-                                                   c_{b}$, where $c_{y}$ is ...
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:95: Undefined control sequence.
+l.95 ..._{x}$ under the constrain $c_{a} \notequal
+                                                   c_{b}$, where $c_{g}$ is ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1149,180 +1142,89 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:104: Package inputenc Error: Unicode char θ (U+3B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 θ
-         ( u ) =
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:105: Package inputenc Error: Unicode char θ (U+3B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 θ
-         ( t ), in which θ ( x ) ∈ L = {` 1 , ` 2 , . . . , ` n } represe...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:105: Package inputenc Error: Unicode char θ (U+3B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 θ ( t ), in which θ
-                            ( x ) ∈ L = {` 1 , ` 2 , . . . , ` n } represe...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:105: Package inputenc Error: Unicode char ∈ (U+2208)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 θ ( t ), in which θ ( x ) ∈
-                                      L = {` 1 , ` 2 , . . . , ` n } represe...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:113: Package inputenc Error: Unicode char θ (U+3B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 θ
-         ( s ) =
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:114: Package inputenc Error: Unicode char θ (U+3B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.114 θ
-         ( t )
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:116: Package inputenc Error: Unicode char ≤ (U+2264)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 if R ≤
-               T
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
+
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:119: Double subscript.
+l.119 $K^{G}_i, K^{G}_{validation}_
+                                   i, U^{G}_{validation}_i, I^{G} = Split(G,...
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:119: Double subscript.
+l.119 ...K^{G}_{validation}_i, U^{G}_{validation}_
+                                                  i, I^{G} = Split(G,p,k)$ s...
+I treat `x_1_2' essentially like `x_1{}_2'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (9.70418pt too high) has occurred while \output is active []
 
  [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `alg:RFS-Ensemble' on page 4 undefined on input line 237.
+ [4]
 
-[4] [5]
+LaTeX Warning: Reference `alg:RFS-Ensemble' on page 5 undefined on input line 250.
+
+[5] [6]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 280.
- [6]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 293.
+ [7]
 
-LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 7 undefined on input line 314.
-
-
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 7 undefined on input line 314.
+LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 8 undefined on input line 327.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 8 undefined on input line 327.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
 
  []
 
 
-LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 7 undefined on input line 335.
+LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 8 undefined on input line 348.
 
 
-LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 7 undefined on input line 335.
-
-[7]
-
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 8 undefined on input line 337.
+LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 8 undefined on input line 348.
 
 
-LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 8 undefined on input line 450.
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 8 undefined on input line 350.
 
 
-LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 8 undefined on input line 464.
+LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 8 undefined on input line 463.
+
+[8]
+
+LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 9 undefined on input line 477.
 
 
-Underfull \vbox (badness 1102) has occurred while \output is active []
-
- [8]
-Overfull \hbox (6.41266pt too wide) in paragraph at lines 480--481
+Overfull \hbox (6.41266pt too wide) in paragraph at lines 493--494
 []\OT1/ptm/m/n/10 In al-most all ex-am-ined cases, RFSE mod-els out-per-formed the cor-re-spond-ing OCSVM
  []
 
-(/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [9]) [10
+[9] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [10]) [11
 
 ] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 25826 strings out of 493029
- 625972 string characters out of 6136234
- 785408 words of memory out of 5000000
+ 25824 strings out of 493029
+ 625984 string characters out of 6136234
+ 786403 words of memory out of 5000000
  28859 multiletter control sequences out of 15000+600000
- 44801 words of font info for 98 fonts, out of 8000000 for 9000
+ 44379 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,18n,84p,1459b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (10 pages, 126480 bytes).
+Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (11 pages, 130531 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
