@@ -156,6 +156,7 @@ $DRT \gets 0$ initializing \textit{Distance Ratio Threshold} with $0$ value.
 }
 
 \end{algorithm}
+
 In the optimization procedure the training samples are splited based on their class tags $c_{x}$. Then some class tags are \textit{marked as unknown} and some are left being known. Therefore, all the samples of the marked as unknown are used only in the validation subset while the known class tags samples are farther splited into the classes sets (one for each class) and into the known validation set. Then, samples of the validation sets, both then known and then marked as unknown, are used seamlessly for calculating the set of Distance Rations (one for each class). Afterwards, a set of DRT values are tested given a range of values $R \in {t_{1}, t_{2}, t_{n}}$ beforehand where the $t_{x}$ is selected which is maximizing the NA of the validation set.
 
 The splitting procedure the of the training set is regulated by a hyper-parameter $p$ which defines the percentage of the class tags set $g \in {1,2,...,N}$ where they will be marked as unknown. Then the total number of all possible splitting combination are calculated and these split-sets are used for finding the DRT. The combination are found using equations \ref{eq:splt_percent} and \ref{eq:splt}, where eq.\ref{eq:splt} is the \textit{Binomial Coefficient}.
@@ -206,54 +207,7 @@ $R_{W} = D^{cos}_{C_{g}W}[Di^{min}_{A}] / D^{cos}_{C_{g}W}[Di^{min}_{B}]$ calcul
 
 \end{algorithm}
 
-
-\subsection{Random Feature Sub-spacing Ensemble}\label{sec:RFSE_Description}
-
-The Random Feature Sub-spacing Ensemble (RFSE) algorithm is a variation of the method presented by Koppel et al. \citep{koppel2011authorship} for the task of \textit{author identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
-
-%\hfill \break
-%
-%\begin{algorithm}[H]
-%\caption{The \textit{RFSE} algorithm.}\label{alg:RFS-Ensemble}
-%\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
-%		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
-%		 $F$ the feature set,
-%		 $fs$ a fraction of feature set size,
-%		 $I$ a number of iterations,
-%		 $\boldsymbol\sigma$ the decision threshold }
-%\KwResult{ $r \in \{G,\,\emptyset\}$ }
-%\For{each $g \in G$}{
-%  $centroid[g] = average(W_{g},F)$, average all known web-pages $W_{g}$ of genre $g$ to build a centroid vector\;
-%  $score[g]=0$\;
-%}
-%\Repeat{$I$ times}{
-%    $f = subset(F,WEDGIEGIE$, Randomly choose $fs$ features from the full feature set $F$\;
-%    \For{each $g$ in $G$}{
-%        \For{each $w$ in $W_{a}$}{
-%    	   $sim[g, w] = similarity(w, centroid(g), f)$, estimate similarity of unknown page $w$ with $centroid(g)$ in vector space $f$\;
-%        }
-%    }
-%   	$maxg = argmax_{g \in G}(sim[:, :])$, find the top match genre\;
-%   	$score(maxg) = score(maxg) + 1$, increase the score of top match genre\;
-%}
-%
-%\eIf{$max(score(g))/I > \boldsymbol\sigma$}{
-%   $r = argmax_{g \in G}(score(g))$, assign the unknown page to genre with maximum top matches\;
-%}
-%{
-%      $r = \emptyset$, none of the known genres or "I don't know"\;
-%}
-%\end{algorithm}
-%
-%\hfill \break
-
-In our study we adopt the RFSE method as introduced in \citep{pritsos2013open} shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
-
-The class centroids are all formed for a given feature type. Then, an evaluation document is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is used. Then, the scores are ranked from highest to lowest and we measure the number of times the document is top-matched with every class. The document is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the document remains unclassified, the RFSE responds "I Don't Know".
-
-
-With respect to the similarity function, we examine cosine similarity (similar to \citep{pritsos2013open}) and MinMax similarity (inspired by \citep{koppel2014determining}). Moreover, in this paper we introduce a measure that combines these two similarity functions and selects the one that is most confident in each iteration. More specifically, since cosine and MinMax may have different mean and standard deviation for the set of all evaluation documents and all iterations per document, we first normalize their value. Then, for each evaluation document and each iteration we select the one with maximum normalized value. We call this similarity measure \textit{Combo}.
-
+Our implementation of the above NNRD algorithm can be found at https://github.com/dpritsos/OpenNNDR, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.
 
 \section{Open-set Evaluation Methodology}
 
@@ -320,6 +274,17 @@ As concerns OCSVM model, two parameters have to be tuned: the number of features
 
 
 \section{Experiments}\label{sec:Experiments_Results}
+
+
+RFSE BASELINE
+%The Random Feature Sub-spacing Ensemble (RFSE) algorithm is a variation of the method presented by Koppel et al. \citep{koppel2011authorship} for the task of \textit{author identification}. In the original %approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most %likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. %That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea %should also work for it.
+%
+%In our study we adopt the RFSE method as introduced in \citep{pritsos2013open} shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre. To %maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors %of the training examples of web pages for each genre.
+%
+%The class centroids are all formed for a given feature type. Then, an evaluation document is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is %used. Then, the scores are ranked from highest to lowest and we measure the number of times the document is top-matched with every class. The document is assigned to the genre with maximum number of matches %given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the document remains unclassified, the RFSE responds "I Don't Know".
+
+
+
 \subsection{WGI with Unstructured Noise}\label{sec:WGI_noise}
 
 We initially examine the performance of OCSVM and RFSE models based on SANTINIS corpus. In the training phase, only the 11 known genres are considered. In the testing phase, the noise pages coming from the SPIRIT corpus are also used. Note that information about the true genre of these pages is not available. Therefore, we have to deal with unstructured noise. We perform  10-fold cross validation and in each fold we include the full set of 1,000 pages of noise. This evaluation strategy is giving a more realistic evaluation framework since the size of the noise is much greater than the size of any genre included in the given palette.
