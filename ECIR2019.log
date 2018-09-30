@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  27 SEP 2018 20:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  30 SEP 2018 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -973,14 +973,14 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algobox=\box79
 ) (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:72: Package natbib Error: Bibliography not compatible with author-year citations.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:59: Package natbib Error: Bibliography not compatible with author-year citations.
 (natbib)                Press <return> to continue in numerical citation style.
 
 See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.59 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -1111,29 +1111,39 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:93: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:94: Undefined control sequence.
+l.94 ...inal document vectors derived from \tetxit
+                                                  {Distributional Feature Mo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:107: Missing $ inserted.
 <inserted text> 
                 $
-l.93 ... Accuracy}. The balance parameters \lambda
+l.107 ...Accuracy}. The balance parameters \lambda
                                                    regulates the mistakes tr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:94: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:108: Missing $ inserted.
 <inserted text> 
                 $
-l.94 
-     
+l.108 
+      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (52.22137pt too wide) in paragraph at lines 92--94
+Overfull \hbox (52.22137pt too wide) in paragraph at lines 106--108
 \OT1/ptm/m/it/10 ples Ac-cu-racy\OT1/ptm/m/n/10 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/10 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/10 ^^@ \OML/ztmcm/m/it/10 offontheknownandmarked \OMS/ztmcm/m/n/10 ^^@
  []
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:95: Undefined control sequence.
-l.95 ..._{x}$ under the constrain $c_{a} \notequal
+[2]
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:109: Undefined control sequence.
+l.109 ...{x}$ under the constrain $c_{a} \notequal
                                                    c_{b}$, where $c_{g}$ is ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1142,70 +1152,92 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:119: Double subscript.
-l.119 $K^{G}_i, K^{G}_{validation}_
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:133: Double subscript.
+l.133 $K^{G}_i, K^{G}_{validation}_
                                    i, U^{G}_{validation}_i, I^{G} = Split(G,...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:119: Double subscript.
-l.119 ...K^{G}_{validation}_i, U^{G}_{validation}_
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:133: Double subscript.
+l.133 ...K^{G}_{validation}_i, U^{G}_{validation}_
                                                   i, I^{G} = Split(G,p,k)$ s...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2]
-Overfull \vbox (9.70418pt too high) has occurred while \output is active []
-
  [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (23.23927pt too high) has occurred while \output is active []
 
  [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `alg:RFS-Ensemble' on page 5 undefined on input line 250.
-
-[5] [6]
-LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 293.
- [7]
-
-LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 8 undefined on input line 327.
-
-
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 8 undefined on input line 327.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
-
+ [5]
+Overfull \hbox (94.71202pt too wide) in paragraph at lines 224--225
+[]\OT1/ptm/m/n/10 Our im-ple-men-ta-tion of the above NNRD al-go-rithm can be found at https://github.com/dpritsos/OpenNNDR,
  []
 
+[6] [7]
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:254: Undefined control sequence.
+<recently read> \lamba 
+                       
+l.254 ...ng parameters have been tested:1) $\lamba
+                                                  =\{0.2,0.5,0.7\}$ which is...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 8 undefined on input line 348.
 
+Overfull \hbox (8.56146pt too wide) in paragraph at lines 254--255
+[]\OT1/ptm/m/n/10 Particularly for NNRD then fol-low-ing pa-ram-e-ters have been tested:1) $\OT1/ztmcm/m/n/10 = \OMS/ztmcm/m/n/10 f\OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 2\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 5\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 7\OMS/ztmcm/m/n/10 g$
+ []
 
-LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 8 undefined on input line 348.
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 263.
 
-
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 8 undefined on input line 350.
-
-
-LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 8 undefined on input line 463.
+Overfull \hbox (16.17374pt too wide) in paragraph at lines 263--264
+\OT1/ptm/m/n/10 tion $\OML/ztmcm/m/it/10 fs$\OT1/ptm/m/n/10 , the num-ber of it-er-a-tions \OT1/ptm/m/it/10 I\OT1/ptm/m/n/10 , and the thresh-old $\OML/ztmcm/m/it/10 ^^[$\OT1/ptm/m/n/10 . We ex-am-ined $\OML/ztmcm/m/it/10 F$\OT1/ptm/m/it/10 =\OMS/cmsy/m/n/10 f\OT1/ptm/m/it/10 5k,10k,50k,100k\OMS/cmsy/m/n/10 g\OT1/ptm/m/n/10 ,
+ []
 
 [8]
 
-LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 9 undefined on input line 477.
+LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 9 undefined on input line 296.
 
 
-Overfull \hbox (6.41266pt too wide) in paragraph at lines 493--494
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 9 undefined on input line 296.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
+
+ []
+
+
+LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 9 undefined on input line 317.
+
+
+LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 9 undefined on input line 317.
+
+
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 9 undefined on input line 319.
+
+
+LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 9 undefined on input line 432.
+
+[9]
+
+LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 10 undefined on input line 446.
+
+
+Overfull \hbox (6.41266pt too wide) in paragraph at lines 462--463
 []\OT1/ptm/m/n/10 In al-most all ex-am-ined cases, RFSE mod-els out-per-formed the cor-re-spond-ing OCSVM
  []
 
-[9] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [10]) [11
+[10] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [11]) [12
 
 ] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux)
 
@@ -1213,18 +1245,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 25824 strings out of 493029
- 625984 string characters out of 6136234
- 786403 words of memory out of 5000000
- 28859 multiletter control sequences out of 15000+600000
- 44379 words of font info for 96 fonts, out of 8000000 for 9000
+ 25821 strings out of 493029
+ 625776 string characters out of 6136234
+ 785357 words of memory out of 5000000
+ 28852 multiletter control sequences out of 15000+600000
+ 45355 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,18n,84p,1459b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (11 pages, 130531 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (12 pages, 135770 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

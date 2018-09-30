@@ -23,11 +23,6 @@ Kanaris, I., Stamatatos, E.: {Learning to recognize webpage genres}.
 Koppel, M., Schler, J., Argamon, S.: Authorship attribution in the wild.
   Language Resources and Evaluation  \textbf{45}(1),  83--94 (2011)
 
-\bibitem{koppel2014determining}
-Koppel, M., Winter, Y.: Determining if two documents are written by the same
-  author. Journal of the Association for Information Science and Technology
-  \textbf{65}(1),  178--187 (2014)
-
 \bibitem{mehler2010genres_on_web}
 Mehler, A., Sharoff, S., Santini, M.: Genres on the Web: Computational Models
   and Empirical Studies. Text, Speech and Language Technology, Springer (2010)
@@ -50,11 +45,6 @@ Pritsos, D.A., Stamatatos, E.: Open-set classification for automated genre
 \bibitem{santini2007automatic}
 Santini, M.: Automatic identification of genre in web pages. Ph.D. thesis,
   University of Brighton (2007)
-
-\bibitem{scholkopf1999estimating}
-Scholkopf, B., Platt, J., Shawe-Taylor, J., Smola, A., Williamson, R.:
-  {Estimating the support of a high-dimensional distribution}. Technical Report
-  MSR-TR-99-87  (1999)
 
 \bibitem{sharoff2010web}
 Sharoff, S., Wu, Z., Markert, K.: The web library of babel: evaluating genre

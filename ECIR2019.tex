@@ -75,11 +75,25 @@ Web genre detection is a task that can enhance information retrieval systems by 
 
 \section{Distributional Features Learning}\label{sec:Gensim}
 
-Gensim description of my methods (see HTML2VEC)
+In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we ave implemented a special module inside our package, specialized for HTML preprocessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
 
-\section{Open-set Classification Methods}\label{sec:Open-set_methods}
+In order to compare our work to previews works, two different document representation types can be produced form our \textit{Gensim based sub-module}. One is PVBOW Word-n-grams and the other for PVBOW Character-n-grams, which are presented in our following experimental results.
 
-\subsection{Nearest Neighbors Distance Ratio}\label{sec:NNRD_Description}
+The PVBOW is a \textit{Neural Network} (NNet) where it is formed as a \textit{softmax} multi-class classifier approximating the formula or eq.\ref{eq:softmax}. PVBOW is trained using \textit{stochastic gradient descent} where the gradient is obtained via \textit{backpropagation}. The objective function of the NNet is the maximized \textit{average log probability} eq.\ref{eq:objFN}, given a sequence of training n-grams (word of character) $t_{1}, t_{2}, t_{3}, ..., t_{T}$.
+
+\begin{equation} \label{eq:objFN}
+    \max{\frac{1}{T} \sum^{a=k}_{T-k}{\log{p(t_{a}|t_{a-k},...,t_{a+k})}}}
+\end{equation}
+
+\begin{equation} \label{eq:softmax}
+    p(t_{a}|t_{a-k},...,t_{a+k}) = \frac{e^{y_{t_{a}}}}{\sum_{i}{e^{y_i}}}
+\end{equation}
+
+Particularly for PVBOW, we are using for this study, for each iteration, of the stochastic gradient descent, a \textit{text window} is sampled with size $w_{size}$. Then a random word is sample from the text window and \textit{form a classification task given the Paragraph Vector}. Thus the $y$ of the eq.\ref{eq:softmax} is formed to be $y = b + s(t_{1},t_{2},t_{3},...,t_{w_{size}})$ where $s()$ is the sequence of words-n-grams or character-n-grams of the sampled window.
+
+In our study we are training a PVBOW Distributional Feature model for the whole corpus. The corpus initially is splited to a set of paragraphs, as required from PVBOW. To be more specific the paragraphs are sentenses splited from all the document of the whole corpus. Then several models PVBOW feature models are trained for a variaty of parameters and vector dimentions, explained in the experiments section below. After the model has been fitted then one vector for each web-document was inferered from the PVBOW. The final document vectors derived from \tetxit{Distributional Feature Model} are given to the open-set learning model explaind below.
+
+\section{Nearest Neighbors Distance Ratio}\label{sec:NNRD_Description}
 
 The Nearest Neighbors Distance Ratio (NNRD) algorithm is our variant implementation of the proposed open-set algorithm of Mendes et al. \cite{mendesjunior2016}. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. In our approach we are using cosine distance, because in text classification is being confirmed to be the proper choice in hundreds of publications. Moreover, the cosine distance is comparable to the results of the \textit{Random Feature Sub-spacing Ensemble} algorithm found in \cite{pritsos2018open} where cosine similarity is used for the WGI evaluation.
 
@@ -149,8 +163,8 @@ $DRT \gets 0$ initializing \textit{Distance Ratio Threshold} with $0$ value.
     $NA_{V} = NormalizedAccuracy(Y, R_{V})$ calculating the Normalized Accuracy as shown in equation \ref{eq:NA} for tested threshold $drt$\;
 
     \eIf{$NA_{V} > NA^{max}$}{
-        $NA^{max} \gets NA_{V}$ keeping the maximum $NA$ until the outer for-loop finishes;
-        $DRT \gets drt$ keeping the \textit{Distance Ratio Threshold} maximizes the \textit{Normalized Accuracy};
+        $NA^{max} \gets NA_{V}$ keeping the maximum $NA$ until the outer for-loop finishes\;
+        $DRT \gets drt$ keeping the \textit{Distance Ratio Threshold} maximizes the \textit{Normalized Accuracy}\;
     }
 
 }
@@ -207,17 +221,12 @@ $R_{W} = D^{cos}_{C_{g}W}[Di^{min}_{A}] / D^{cos}_{C_{g}W}[Di^{min}_{B}]$ calcul
 
 \end{algorithm}
 
-Our implementation of the above NNRD algorithm can be found at https://github.com/dpritsos/OpenNNDR, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.
+Our implementation of the above NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.
 
 \section{Open-set Evaluation Methodology}
+In this study we are measuring the performance of a novel extention of the NN method, designed for open-set classification when the web-documents used as input are \textit{Distributional Encodings of Fixed Size Vectors} derived from an PVBOW NNet model. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process.
 
-Macro-F1
-Macro-P
-Macro-R
-Macro-PR-Curves
-
-Measuring the effect the marked-as-unknown or marked-as-noise.
-
+To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. Than is a modified version of precision and recall for open-set classification tasks proposed by \cite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
 
 Precision-Recall curve is a standard method to visualize the performance of classifiers. In this paper, the Precision-Recall curve is calculated in 11-standard recall levels $[0,0.1,...,1.0]$. Precision values are interpolated based on the following formula:
 
@@ -228,53 +237,21 @@ Precision-Recall curve is a standard method to visualize the performance of clas
 \noindent
 where $P(r_j)$ is the precision at $r_j$ standard recall level.
 
-To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. In more detail, we use the modified version of precision and recall for open-set classification tasks proposed by \citep{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use 2 scalar measures, the Area Under the Precision-Recall Curve (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
-
 \section{Experimental Setup}\label{sec:experimental_setup}
 \subsection{Corpora}\label{sec:corpora}
-In this paper we study the performance of the open-set classification models on the WGI task. In particular, the two open-set algorithms described above are analytically tested on benchmark corpora. In particular, our experiments are based on the following corpora already used in previous work in WGI \citep{meyer2004genre,santini2007automatic,kanaris2009learning}:
+In this paper we study NNRD performace with distributional features derived from a NNet PVBOW coprus. In particular, the open-set algorithms described above are analytically tested on benchmark corpus already used in previous work in WGI \citep{meyer2004genre,santini2007automatic,kanaris2009learning,pritsos2018open}, the \textit{SANTINIS} \cite{mehler2010genres_on_web} corpus.Details are given in table \ref{tbl:genre_tags}. This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \cite{joho2004spirit}. The latter can be viewed as noise in this corpus. In particular in this study SPIRIT tags are considered \textit{Marked as Uknown} (MU) and this is how we measure them.
 
-\begin{enumerate}
-\item \textit{SANTINIS} \citep{mehler2010genres_on_web}: This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \citep{joho2004spirit}. The latter can be viewed as noise in this corpus. Details are given in table \ref{tbl:genre_tags}.
-\item \textit{KI-04} \citep{meyer2004genre}: This is a collection of 1,205 English web pages unevenly categorized into 8 genres. Details can be seen in table \ref{tbl:genre_tags}.
-\end{enumerate}
-
+Note that in the evaluation process we both measuring two kind classification-as-unknown of the open-set algorithm; the \textit{false positive unknown} where are classification of samples which have class tags known to the NNRD model and the \textit{true positive unknown} where they are marked-as-unknown (or marked-as-noise) where they are considered as noise.
 
 \subsection{Settings}\label{sec:evaluation_measures}
 
-Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments, the following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). We use the Term-Frequency (TF) weighting scheme  and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only.
+Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments, the following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G).
 
-As concerns OCSVM model, two parameters have to be tuned: the number of features $F$ and $\nu$. For the former, we used $F=$\textit{\{1k, 5k, 10k, 50k, 90k\}}, of most frequent terms of the vocabulary. Following the reports of previous studies \citep{scholkopf1999estimating} and some preliminary experiments, we examined $\nu$\textit{=\{0.05, 0.07, 0.1, 0.15, 0.17, 0.3, 0.5, 0.7, 0.9\}}. In comparison to \citep{pritsos2013open}, this set of parameter values is more extended. With respect to RFSE, four parameters should be set: the vocabulary size $F$, the number of features used in each iteration $fs$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined $F$\textit{=\{5k, 10k, 50k, 100k\}}, $fs$=\textit{\{1k, 5k, 10k, 50k, 90k\}}, \textit{I}=\textit{\{10, 50, 100\}} (following the suggestion in \citep{koppel2011authorship} that more than 100 iterations does not improve significantly the results) and $\sigma$\textit{=\{0.5, 0.7, 0.9\}} (based on some preliminary tests). Additionally, in this work we are testing three document similarity measures: cosine similarity, MinMax similarity,  and combined cosine similarity and MinMax. Finally, to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations.
+We use the Term-Frequency (TF) weighting scheme and Distributional Learning sheme. The feature space for TF is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only.
 
-\begin{table}
-\center
-\begin{tabular}{|l|l|l|l|}
-\hline
-\multicolumn{2}{|c|}{SANTINIS} & \multicolumn{2}{c|}{KI-04}\tabularnewline
-\hline
-\multicolumn{1}{|c|}{Genre} & \multicolumn{1}{c|}{Pages} & \multicolumn{1}{c|}{Genre} & \multicolumn{1}{c|}{Pages}\tabularnewline
-\hline
-\multicolumn{1}{|l|}{Blog} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Article} & \multicolumn{1}{c|}{127}\tabularnewline
-\multicolumn{1}{|l|}{Eshop} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Discussion} & \multicolumn{1}{c|}{127}\tabularnewline
-\multicolumn{1}{|l|}{FAQ} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Download} & \multicolumn{1}{c|}{152}\tabularnewline
-\multicolumn{1}{|l|}{Frontpage} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Help} & \multicolumn{1}{c|}{140}\tabularnewline
-\multicolumn{1}{|l|}{Listing} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Link Collection} & \multicolumn{1}{c|}{208}\tabularnewline
-\multicolumn{1}{|l|}{Personal Home Page} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Portrayal-Non Private} & \multicolumn{1}{c|}{179}\tabularnewline
-\multicolumn{1}{|l|}{Search Page} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Portrayal- Private} & \multicolumn{1}{c|}{131}\tabularnewline
-\multicolumn{1}{|l|}{DIY Mini Guide (BBC)} & \multicolumn{1}{c|}{20} & \multicolumn{1}{l|}{Shop} & \multicolumn{1}{c|}{175}\tabularnewline
-\multicolumn{1}{|l|}{Editorial (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
-\multicolumn{1}{|l|}{Features (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
-\multicolumn{1}{|l|}{Short Bio (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
-\multicolumn{1}{|l|}{Noise (Spirit1000)} & \multicolumn{1}{c|}{1000} &  & \tabularnewline
-\hline
-\end{tabular}
-\caption {Corpora descriptions and amount of pages per genre.}
-\label{tbl:genre_tags}
-\end{table}
+The feature space in the Distributional model is preselected while he deep learning process of PVBOW model. The range of the models fixed dimentions has been tested are $D_{dim}=\{50,100,250,500,1000\}$ based of previews studies related to the distributional features on Natural Language Processing domain where relatively small dimesions are used, compare to TF schem. This process is also driven by an internal terms \textit{Vocabulary} which is used for eliminating the terms with lower than a preferred frequency and then discards the terms from the text window for the PVBOW (see section \ref{sec:Gensim}). In this study we have tested as the $fq_{min}=\{3,10\}$ minimum frequencies set and $P_{win}=\{3,8,20\}$ text window size set. In respect of PVBOW model, other (hyper-)parameter values put to a test were $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002,0.02\}$.
 
-
-\section{Experiments}\label{sec:Experiments_Results}
-
+Particularly for NNRD then following parameters have been tested:1) $\lamba=\{0.2,0.5,0.7\}$ which is regulating the balance between the known and the uknown classification accuracy risk in the formula \ref{eq:NA}, 2)DRT threshold selection candidates $DRT=\{0.8,0.1\}$. Also two other parameters we have introduced in our implementation; the percentage of the training set to be splited internaly as Training/Validation sub-sets where $V_{ptg}=\{0.5,0.7\}$ has been tested. Then the percentage of the validation set which was splited as unknown $U_{ptg}=\{0.3,0.5\}$ has been tested.
 
 RFSE BASELINE
 %The Random Feature Sub-spacing Ensemble (RFSE) algorithm is a variation of the method presented by Koppel et al. \citep{koppel2011authorship} for the task of \textit{author identification}. In the original %approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most %likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. %That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea %should also work for it.
@@ -283,9 +260,36 @@ RFSE BASELINE
 %
 %The class centroids are all formed for a given feature type. Then, an evaluation document is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is %used. Then, the scores are ranked from highest to lowest and we measure the number of times the document is top-matched with every class. The document is assigned to the genre with maximum number of matches %given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the document remains unclassified, the RFSE responds "I Don't Know".
 
+As comparative \textit{Baseline} we have employeed RFSE. With respect to RFSE, four parameters should be set: the vocabulary size $F$, the number of features used in each iteration $fs$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined $F$\textit{=\{5k,10k,50k,100k\}}, $fs$=\textit{\{1k,5k,10k,50k,90k\}}, \textit{I}=\textit{\{10,50,100\}} (following the suggestion in \citep{koppel2011authorship} that more than 100 iterations does not improve significantly the results) and $\sigma$\textit{=\{0.5,0.7,0.9\}} (based on some preliminary tests). Additionally, in this work we are testing three document similarity measures: cosine similarity,
+
+Finally, to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations.
+
+\begin{table}
+\center
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{1}{|c|}{Genre} & \multicolumn{1}{c|}{Pages} \tabularnewline
+\hline
+\multicolumn{1}{|l|}{Blog} & \multicolumn{1}{c|}{200}  \tabularnewline
+\multicolumn{1}{|l|}{Eshop} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{FAQ} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{Frontpage} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{Listing} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{Personal Home Page} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{Search Page} & \multicolumn{1}{c|}{200} \tabularnewline
+\multicolumn{1}{|l|}{DIY Mini Guide (BBC)} & \multicolumn{1}{c|}{20} \tabularnewline
+\multicolumn{1}{|l|}{Editorial (BBC)} & \multicolumn{1}{c|}{20} \tabularnewline
+\multicolumn{1}{|l|}{Features (BBC)} & \multicolumn{1}{c|}{20} \tabularnewline
+\multicolumn{1}{|l|}{Short Bio (BBC)} & \multicolumn{1}{c|}{20} \tabularnewline
+\multicolumn{1}{|l|}{Noise (Spirit1000)} & \multicolumn{1}{c|}{1000}  \tabularnewline
+\hline
+\end{tabular}
+\caption {SANTINIS corpora descriptions and amount of pages per genre.}
+\label{tbl:genre_tags}
+\end{table}
 
 
-\subsection{WGI with Unstructured Noise}\label{sec:WGI_noise}
+\section{Experiments}\label{sec:Experiments_Results}
 
 We initially examine the performance of OCSVM and RFSE models based on SANTINIS corpus. In the training phase, only the 11 known genres are considered. In the testing phase, the noise pages coming from the SPIRIT corpus are also used. Note that information about the true genre of these pages is not available. Therefore, we have to deal with unstructured noise. We perform  10-fold cross validation and in each fold we include the full set of 1,000 pages of noise. This evaluation strategy is giving a more realistic evaluation framework since the size of the noise is much greater than the size of any genre included in the given palette.
 
