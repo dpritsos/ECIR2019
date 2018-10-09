@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  30 SEP 2018 21:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  9 OCT 2018 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -971,16 +971,43 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count173
 \algocf@algoframe=\box78
 \algocf@algobox=\box79
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen277
+\captionmargin@=\dimen278
+\captionwidth=\dimen279
+\caption@tempdima=\dimen280
+\caption@indent=\dimen281
+\caption@parindent=\dimen282
+\caption@hangindent=\dimen283
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecaptionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\bfseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa \hfil }\fi \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count174
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 ) (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:59: Package natbib Error: Bibliography not compatible with author-year citations.
+LaTeX Warning: Label `tbl:NNDR_TF' multiply defined.
+
+
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux:67: Package natbib Error: Bibliography not compatible with author-year citations.
 (natbib)                Press <return> to continue in numerical citation style.
 
 See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.67 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -988,47 +1015,57 @@ or select author-year BibTeX style, e.g. plainnat
 )
 \openout1 = `ECIR2019.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 26.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count174
-\scratchdimen=\dimen277
+\scratchcounter=\count175
+\scratchdimen=\dimen284
 \scratchbox=\box80
-\nofMPsegments=\count175
-\nofMParguments=\count176
+\nofMPsegments=\count176
+\nofMParguments=\count177
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count177
-\MPscratchDim=\dimen278
-\MPnumerator=\count178
-\makeMPintoPDFobject=\count179
+\MPscratchCnt=\count178
+\MPscratchDim=\dimen285
+\MPnumerator=\count179
+\makeMPintoPDFobject=\count180
 \everyMPtoPDFconversion=\toks47
 ) ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.13}).
 
-\c@lstlisting=\count180
+\c@lstlisting=\count181
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Incompatible package detected (regarding \@caption).
+(caption)             \@caption = \long macro:#1[#2]#3->\par \addcontentsline {\csname ext@#1\endcsname }{#1}{\protect \numberline {\csname the#1\endcsname }{\ignorespaces #2}}\begingroup \@parboxrestore \@makecaption {\csname fnum@#1\endcsname }{\ignorespaces #3}\par \endgroup .
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 
-Package mathptmx Warning: There are no bold math fonts on input line 41.
+Package mathptmx Warning: There are no bold math fonts on input line 43.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:41: Undefined control sequence.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:43: Undefined control sequence.
 \@institute ->Dimitrios Pritsos \at 
                                     University of the Aegean\\ Karlovassi, S...
-l.41 \maketitle
+l.43 \maketitle
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1036,33 +1073,33 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 41.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 43.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 41.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 41.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 41.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:41: Undefined control sequence.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:43: Undefined control sequence.
 \@institute ...gr} \and Efstathios Stamatatos \at 
                                                   University of the Aegean\\...
-l.41 \maketitle
+l.43 \maketitle
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1070,10 +1107,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:41: Undefined control sequence.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:43: Undefined control sequence.
 \@institute ->Dimitrios Pritsos \at 
                                     University of the Aegean\\ Karlovassi, S...
-l.41 \maketitle
+l.43 \maketitle
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1081,10 +1118,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:41: Undefined control sequence.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:43: Undefined control sequence.
 \@institute ...gr} \and Efstathios Stamatatos \at 
                                                   University of the Aegean\\...
-l.41 \maketitle
+l.43 \maketitle
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1093,26 +1130,26 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 46.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 48.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:94: Undefined control sequence.
-l.94 ...inal document vectors derived from \tetxit
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:96: Undefined control sequence.
+l.96 ...inal document vectors derived from \tetxit
                                                   {Distributional Feature Mo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1120,30 +1157,30 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:107: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:109: Missing $ inserted.
 <inserted text> 
                 $
-l.107 ...Accuracy}. The balance parameters \lambda
+l.109 ...Accuracy}. The balance parameters \lambda
                                                    regulates the mistakes tr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:108: Missing $ inserted.
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:110: Missing $ inserted.
 <inserted text> 
                 $
-l.108 
+l.110 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (52.22137pt too wide) in paragraph at lines 106--108
+Overfull \hbox (52.22137pt too wide) in paragraph at lines 108--110
 \OT1/ptm/m/it/10 ples Ac-cu-racy\OT1/ptm/m/n/10 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/10 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/10 ^^@ \OML/ztmcm/m/it/10 offontheknownandmarked \OMS/ztmcm/m/n/10 ^^@
  []
 
 [2]
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:109: Undefined control sequence.
-l.109 ...{x}$ under the constrain $c_{a} \notequal
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:111: Undefined control sequence.
+l.111 ...{x}$ under the constrain $c_{a} \notequal
                                                    c_{b}$, where $c_{g}$ is ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1152,17 +1189,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:133: Double subscript.
-l.133 $K^{G}_i, K^{G}_{validation}_
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:135: Double subscript.
+l.135 $K^{G}_i, K^{G}_{validation}_
                                    i, U^{G}_{validation}_i, I^{G} = Split(G,...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:133: Double subscript.
-l.133 ...K^{G}_{validation}_i, U^{G}_{validation}_
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:135: Double subscript.
+l.135 ...K^{G}_{validation}_i, U^{G}_{validation}_
                                                   i, I^{G} = Split(G,p,k)$ s...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
@@ -1176,16 +1213,19 @@ Overfull \vbox (23.23927pt too high) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-Overfull \hbox (94.71202pt too wide) in paragraph at lines 224--225
+Overfull \hbox (94.71202pt too wide) in paragraph at lines 226--227
 []\OT1/ptm/m/n/10 Our im-ple-men-ta-tion of the above NNRD al-go-rithm can be found at https://github.com/dpritsos/OpenNNDR,
  []
 
-[6] [7]
-/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:254: Undefined control sequence.
+[6]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 253.
+ [7]
+/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.tex:257: Undefined control sequence.
 <recently read> \lamba 
                        
-l.254 ...ng parameters have been tested:1) $\lamba
-                                                  =\{0.2,0.5,0.7\}$ which is...
+l.257 ...ng parameters have been tested:1) $\lamba
+                                                  \textit{=\{0.2, 0.5, 0.7\}...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1193,70 +1233,79 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (8.56146pt too wide) in paragraph at lines 254--255
-[]\OT1/ptm/m/n/10 Particularly for NNRD then fol-low-ing pa-ram-e-ters have been tested:1) $\OT1/ztmcm/m/n/10 = \OMS/ztmcm/m/n/10 f\OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 2\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 5\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 0\OML/ztmcm/m/it/10 :\OT1/ztmcm/m/n/10 7\OMS/ztmcm/m/n/10 g$
- []
-
-LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 263.
-
-Overfull \hbox (16.17374pt too wide) in paragraph at lines 263--264
-\OT1/ptm/m/n/10 tion $\OML/ztmcm/m/it/10 fs$\OT1/ptm/m/n/10 , the num-ber of it-er-a-tions \OT1/ptm/m/it/10 I\OT1/ptm/m/n/10 , and the thresh-old $\OML/ztmcm/m/it/10 ^^[$\OT1/ptm/m/n/10 . We ex-am-ined $\OML/ztmcm/m/it/10 F$\OT1/ptm/m/it/10 =\OMS/cmsy/m/n/10 f\OT1/ptm/m/it/10 5k,10k,50k,100k\OMS/cmsy/m/n/10 g\OT1/ptm/m/n/10 ,
- []
-
-[8]
-
-LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 9 undefined on input line 296.
-
-
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 9 undefined on input line 296.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--299
-
+Overfull \hbox (7.30331pt too wide) in paragraph at lines 257--258
+[]\OT1/ptm/m/n/10 Particularly for NNRD then fol-low-ing pa-ram-e-ters have been tested:1) $[]$
  []
 
 
-LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 9 undefined on input line 317.
+Overfull \hbox (10.21323pt too wide) in paragraph at lines 257--258
+\OT1/ptm/m/n/10 racy risk in the for-mula 3[], 2)DRT thresh-old se-lec-tion can-di-dates $\OML/ztmcm/m/it/10 DRT[]$\OT1/ptm/m/n/10 .
+ []
 
 
-LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 9 undefined on input line 317.
+Overfull \hbox (6.99272pt too wide) in paragraph at lines 298--310
+ [] 
+ []
+
+[8] [9]
+
+LaTeX Warning: Reference `fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 10 undefined on input line 355.
 
 
-LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 9 undefined on input line 319.
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS' on page 10 undefined on input line 355.
 
 
-LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 9 undefined on input line 432.
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
-[9]
-
-LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 10 undefined on input line 446.
+ []
 
 
-Overfull \hbox (6.41266pt too wide) in paragraph at lines 462--463
+LaTeX Warning: Reference `tbl:OCSVME_SANTINIS' on page 10 undefined on input line 376.
+
+
+LaTeX Warning: Reference `tbl:RFSE_SANTINIS' on page 10 undefined on input line 376.
+
+
+LaTeX Warning: Reference `fig:MacroPRC_RFSE_OCSVME_SANTINIS' on page 10 undefined on input line 378.
+
+
+LaTeX Warning: Reference `fig:RFSE_precision_focus_openness_test' on page 10 undefined on input line 491.
+
+
+Underfull \vbox (badness 5726) has occurred while \output is active []
+
+ [10]
+
+LaTeX Warning: Reference `fig:RFSE_vs_OCSVME_W1G_openness_test' on page 11 undefined on input line 505.
+
+
+Overfull \hbox (6.41266pt too wide) in paragraph at lines 521--522
 []\OT1/ptm/m/n/10 In al-most all ex-am-ined cases, RFSE mod-els out-per-formed the cor-re-spond-ing OCSVM
  []
 
-[10] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [11]) [12
+[11] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl [12]) [13
 
 ] (/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 25821 strings out of 493029
- 625776 string characters out of 6136234
- 785357 words of memory out of 5000000
- 28852 multiletter control sequences out of 15000+600000
- 45355 words of font info for 100 fonts, out of 8000000 for 9000
+ 26866 strings out of 493029
+ 644759 string characters out of 6136234
+ 815985 words of memory out of 5000000
+ 29887 multiletter control sequences out of 15000+600000
+ 48488 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,18n,84p,1459b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (12 pages, 135770 bytes).
+Output written on /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf (13 pages, 138664 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
