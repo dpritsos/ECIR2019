@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex ECIR2019"] 1539085871 "ECIR2019.aux" "ECIR2019.bbl" "ECIR2019" 1539085872
+["bibtex ECIR2019"] 1539186297 "ECIR2019.aux" "ECIR2019.bbl" "ECIR2019" 1539186298
   "./splncs04.bst" 1521108146 33694 182740d5d784dd29ee55be34dddd4ccc ""
-  "ECIR2019.aux" 1539085872 3637 7e18260ebc066d15f2035b5be4beb04c ""
+  "ECIR2019.aux" 1539186298 4834 eb819627576557108b5a5d579f31df25 ""
   "ECIR2019.bcf" 0 -1 0 ""
   "ECIR2019.bib" 1538212355 21600 b40568c675767d33ca7ebb2eb459ef70 ""
   (generated)
   "ECIR2019.blg"
   "ECIR2019.bbl"
-["pdflatex"] 1539085871 "ECIR2019.tex" "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf" "ECIR2019" 1539085872
+["pdflatex"] 1539186297 "ECIR2019.tex" "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf" "ECIR2019" 1539186298
   "/etc/texmf/web2c/texmf.cnf" 1533018830 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux" 1539085872 3637 7e18260ebc066d15f2035b5be4beb04c ""
+  "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux" 1539186298 4834 eb819627576557108b5a5d579f31df25 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -223,13 +223,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1533018836 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1533018860 3854753 2e231aeeb6aa12a5667681eecc67cf18 ""
-  "ECIR2019.aux" 1539085872 3637 7e18260ebc066d15f2035b5be4beb04c ""
-  "ECIR2019.bbl" 1539085871 2133 2748dc5b2bf06d485225a2f2c676de50 "bibtex ECIR2019"
-  "ECIR2019.tex" 1539085868 51663 86e4d7f42c3a1b52a4259a0b14e5bc8b ""
+  "ECIR2019.aux" 1539186298 4834 eb819627576557108b5a5d579f31df25 ""
+  "ECIR2019.bbl" 1539186297 1991 c833bf49546e81ec97234e4fa2207022 "bibtex ECIR2019"
+  "ECIR2019.tex" 1539186296 53766 191e58e57e378ff809b1dcb819c99cfa ""
   "llncs.cls" 1521108100 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
   (generated)
   "ECIR2019.log"
+  "ECIR2019.aux"
+  "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.log"
   "ECIR2019.pdf"
   "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.pdf"
-  "/home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.log"
-  "ECIR2019.aux"

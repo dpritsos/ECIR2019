@@ -4,45 +4,45 @@ The top-level auxiliary file: ECIR2019.aux
 The style file: splncs04.bst
 Database file #1: ECIR2019.bib
 Warning--can't use both volume and number fields in joho2004spirit
-You've used 11 entries,
+You've used 10 entries,
             2850 wiz_defined-function locations,
-            660 strings with 6256 characters,
-and the built_in function-call counts, 6003 in all, are:
-= -- 508
-> -- 172
+            654 strings with 6118 characters,
+and the built_in function-call counts, 5525 in all, are:
+= -- 471
+> -- 155
 < -- 9
-+ -- 74
-- -- 60
-* -- 352
-:= -- 776
-add.period$ -- 16
-call.type$ -- 11
-change.case$ -- 68
++ -- 66
+- -- 54
+* -- 324
+:= -- 711
+add.period$ -- 14
+call.type$ -- 10
+change.case$ -- 60
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 540
-empty$ -- 554
-format.name$ -- 69
-if$ -- 1320
+cite$ -- 11
+duplicate$ -- 495
+empty$ -- 505
+format.name$ -- 62
+if$ -- 1216
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 104
-newline$ -- 39
-num.names$ -- 22
-pop$ -- 214
+int.to.str$ -- 10
+missing$ -- 95
+newline$ -- 36
+num.names$ -- 20
+pop$ -- 193
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 47
 quote$ -- 0
-skip$ -- 167
+skip$ -- 158
 stack$ -- 0
-substring$ -- 344
-swap$ -- 271
+substring$ -- 330
+swap$ -- 253
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 38
 warning$ -- 1
-while$ -- 54
-width$ -- 13
-write$ -- 118
+while$ -- 51
+width$ -- 12
+write$ -- 108
 (There was 1 warning)

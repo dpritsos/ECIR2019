@@ -297,25 +297,9 @@ In this study we are evaluating the performance of NNDR algorithm into the open-
 
 We perform  10-fold cross validation and in each fold we include the full set of 1,000 pages of noise. This evaluation strategy is giving a more realistic evaluation. Since the noise size is greater than the size of any genre included in the given genres collection.
 
-Initially we are comparing the perfomace of NNDR with RFSE on TF features vocabulary. RFSE returns higher score to NNDR, in tables \ref{tbl:NNDR_TF} and \ref{tbl:RFSE_TF}, for Macro-F1 and Macro-AUC and for any terms-type. However, 
+Initially we are comparing the perfomace of NNDR with RFSE on TF features vocabulary. RFSE returns higher score to NNDR, in tables \ref{tbl:NNDR_TF} and \ref{tbl:RFSE_TF}, for Macro-F1 and Macro-AUC and for any terms-type. However,
 
-\begin{table}
-\center
-\begin{tabular}{|l|cccc|lr|ccccr|rrrr|}
-\hline
-MAX. & STP & SUP & DRT & $\lambda$ & T.TYPE & DIMs & MTF & WS & $\alpha$ & EP. & DEC. & M\emph{P} & M\emph{R} & M\emph{AUC} & M\emph{F1} \\
-\hline
-F1 & any & any & 0.8 & any & C4G & 50 & 3 & 8 & 0.025 & 10 & 0.002 & 0.829 & 0.600 & 0.411 & 0.696 \\
-AUC & any & any & 0.8 & any & C4G & 500 & 3 & 3 & 0.025 & 10 & 0.02 & 0.755 & 0.602 & 0.462 & 0.670 \\
-F1 & any & any & 0.8 & any & W1G & 50 & 3 & 3 & 0.025 & 10 & 0.02 & 0.733 & 0.670 & 0.431 & 0.700 \\
-AUC & any & any & 0.8 & any & W1G & 50 & 3 & 8 & 0.025 & 10 & 0.02 & 0.730 & 0.623 & 0.447 & 0.673 \\
-F1 & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.615 & 0.488 & 0.706 \\
-AUC & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.615 & 0.488 & 0.706 \\
-\hline
-\end{tabular}
-\caption {Maximum performance of NNDR on Distributional Features of SANTINIS coprus}
-\label{tbl:NNDR_Gensim}
-\end{table}
+\pagebreak
 
 \begin{table}
 \center
@@ -327,12 +311,13 @@ F1 & 0.7 & 0.5 & 0.8 & any & C4G & 5000 & 0.664 & 0.403 & 0.296 & 0.502 \\
 AUC & 0.7 & 0.5 & 0.8 & any & C4G & 5000 & 0.664 & 0.403 & 0.296 & 0.502 \\
 F1 & 0.7 & 0.5 & 0.8 & any & W1G & 5000 & 0.691 & 0.439 & 0.278 & 0.537 \\
 AUC & 0.5 & 0.5 & 0.6 & 0.5 & W1G & 5000 & 0.943 & 0.202 & 0.191 & 0.333 \\
-F1 & 0.7 & 0.3 & 0.8 & 0.2 or 0.5 & W3G & 5000 & 0.681 & 0.378 & 0.488 & 0.673 \\
+F1 & 0.5 & 0.5 & 0.8 & 0.3 or 1.5 & W3G & 10000 & 0.720 & 0.664 & 0.417 & 0.691 \\
 AUC & 0.5 & 0.5 & 0.6 & 0.5 & W3G & 5000 & 0.738 & 0.604 & 0.473 & 0.664 \\
 \hline
 \end{tabular}
-\caption {Maximum performance of NNDR on TF Features of SANTINIS coprus}
+\caption {Maximum performance of NNDR on TF Features of SANTINIS coprus. STP is the Spliting Training Percentage. SUP is the Spliting Unknown Percentage. DRT is the Distance Ration Threshold. $\lambda$ is the weigting balance regulation paramters for the Normalised Accuracy. T.TYPE is the Terms Type. DIMs is the features model's dimentions. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
 \label{tbl:NNDR_TF}
+\vspace{-15mm}
 \end{table}
 
 \begin{table}
@@ -349,14 +334,34 @@ F1 & 1000 & 0.7 & 100 & W3G & 50000 & 0.797 & 0.722 & 0.488 & 0.758 \\
 AUC & 1000 & 0.5 & 100 & W3G & 100000 & 0.657 & 0.805 & 0.696 & 0.723 \\
 \hline
 \end{tabular}
-\caption {Maximum performance of RFSE on TF Features of SANTINIS coprus}
+\caption {Maximum performance of RFSE on TF Features of SANTINIS coprus. FSS is the Features Subset Selection number. $\sigma$T is the sigma threhold of the RFSE. ITER is the number of iterations of the RFSE. T.TYPE is the Terms Type. DIMs is the features model's dimentions. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro Precision-Recall Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
 \label{tbl:RFSE_TF}
+\vspace{-15mm}
 \end{table}
 
+\begin{table}
+\center
+\begin{tabular}{|l|cccc|lr|ccccr|rrrr|}
+\hline
+MAX. & STP & SUP & DRT & $\lambda$ & T.TYPE & DIMs & MTF & WS & $\alpha$ & EP. & DEC. & M\emph{P} & M\emph{R} & M\emph{AUC} & M\emph{F1} \\
+\hline
+F1 & any & any & 0.8 & any & C4G & 50 & 3 & 8 & 0.025 & 10 & 0.002 & 0.829 & 0.600 & 0.411 & 0.696 \\
+AUC & any & any & 0.8 & any & C4G & 500 & 3 & 3 & 0.025 & 10 & 0.02 & 0.755 & 0.602 & 0.462 & 0.670 \\
+F1 & any & any & 0.8 & any & W1G & 50 & 3 & 3 & 0.025 & 10 & 0.02 & 0.733 & 0.670 & 0.431 & 0.700 \\
+AUC & any & any & 0.8 & any & W1G & 50 & 3 & 8 & 0.025 & 10 & 0.02 & 0.730 & 0.623 & 0.447 & 0.673 \\
+F1 & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.615 & 0.488 & 0.706 \\
+AUC & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.615 & 0.488 & 0.706 \\
+\hline
+\end{tabular}
+\caption {Maximum performance of NNDR on Distributional Features of SANTINIS coprus. STP, SUP, DRT, $\lambda$, T.TYPE, DIMs are the same as in table \ref{tbl:NNDR_TF}. MTF is the Minimum Threshold Fequency of the Distributional modles Vocabulary. WS is the Windows Size of the text sentece. $\alpha$ is the NNet parameter. EP is the epochs number of the NNet model. DEC is the decay paramter of the NNet model. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
+\label{tbl:NNDR_Gensim}
+\vspace{-20mm}
+\end{table}
+
+\pagebreak
 
 
-
-Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and \ref{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS} depict the Precision-Recall curves (PRC) of OCSVM and RFSE models, respectively. For each model and each one of the three document representations, the parameters that maximize performance with respect to the $F_{1}$-measure are used. Note that when recall does not reach 1.0 this means that some pages belonging to known classes were classified as unknown. In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G seems to be the best feature type for this corpus, followed by C4G. OCSVM performance is only comparable with RFSE when W3G is used.
+%Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and %\ref{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS} depict the Precision-Recall curves (PRC) of %OCSVM and RFSE models, respectively. For each model and each one of the three document %representations, the parameters that maximize performance with respect to the $F_{1}$-measure are %used. Note that when recall does not reach 1.0 this means that some pages belonging to known classes %were classified as unknown. In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G %seems to be the best feature type for this corpus, followed by C4G. OCSVM performance is only %comparable with RFSE when W3G is used.
 
 \hfill \break
 
@@ -377,9 +382,9 @@ Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and \ref{fig:Macr
 %	\end{center}
 %\end{figure}
 
-We further explore the performance of the open-set WGI methods by selecting parameter settings with different optimization criteria. Tables \ref{tbl:OCSVME_SANTINIS} and \ref{tbl:RFSE_SANTINIS} show the combination of parameters that optimize performance of OCSVM and RFSE based on AUC, $F_{1}$ and $F_{0.5}$. Moreover, in the tables we show the values of all three performance measures where one of them is maximized. It is clear that the performance in all cases is maximized when W3G document representation is used. In previous studies based on a closed-set framework, C4G was the document type of features to maximize performance \citep{Sharroff2010}. This indicates that contextual and content information is important for this corpus \citep{Asheghi2015}.
+%We further explore the performance of the open-set WGI methods by selecting parameter settings with %different optimization criteria. Tables \ref{tbl:OCSVME_SANTINIS} and \ref{tbl:RFSE_SANTINIS} show %the combination of parameters that optimize performance of OCSVM and RFSE based on AUC, $F_{1}$ and %$F_{0.5}$. Moreover, in the tables we show the values of all three performance measures where one of %them is maximized. It is clear that the performance in all cases is maximized when W3G document %representation is used. In previous studies based on a closed-set framework, C4G was the document %type of features to maximize performance \citep{Sharroff2010}. This indicates that contextual and %content information is important for this corpus \citep{Asheghi2015}.
 
-In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important conclusion is that the optimization criterion plays a crucial role for the properties of the model especially for RFSE. When AUC is maximized, recall is favoured. On the other hand, while $F_{1}$ is maximized, precision is substantially increased. Fig.  \ref{fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong decisions and leaves a large number of web pages unclassified. On the other hand, the model optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that prefers precision over recall and vice versa is an application-specific task.
+%In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important %conclusion is that the optimization criterion plays a crucial role for the properties of the model %especially for RFSE. When AUC is maximized, recall is favoured. On the other hand, while $F_{1}$ is %maximized, precision is substantially increased. Fig.  \ref{fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows %the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter %settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong %decisions and leaves a large number of web pages unclassified. On the other hand, the model %optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known %genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that %prefers precision over recall and vice versa is an application-specific task.
 
 %\begin{figure}[H]
 %\begin{center}
@@ -492,7 +497,7 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 %
 % APPEND by Dp - Start
 
-As it was highlighted in the previous section, according to the properties of the application in which WGI is involved, precision may be more important than recall or vice-versa. In figure \ref{fig:RFSE_precision_focus_openness_test} the macro-precision of RFSE is depicted for W3G, W1G and C4G features. MinMax similarity is used since it increases significantly the performance of RFSE in respect with precision. As concerns text representation, W1G is the best choice when precision is at more importance than recall. On the other hand, W3G features seem to be more stable because the standard error is lower than that of the other features and also the W3G model is not affected too much when openness surpasses $0.5$ (actually it improves).
+%As it was highlighted in the previous section, according to the properties of the application in %which WGI is involved, precision may be more important than recall or vice-versa. In figure %\ref{fig:RFSE_precision_focus_openness_test} the macro-precision of RFSE is depicted for W3G, W1G %and C4G features. MinMax similarity is used since it increases significantly the performance of RFSE %in respect with precision. As concerns text representation, W1G is the best choice when precision is %at more importance than recall. On the other hand, W3G features seem to be more stable because the %standard error is lower than that of the other features and also the W3G model is not affected too %much when openness surpasses $0.5$ (actually it improves).
 
 %\begin{figure}[H]
 %\begin{center}
@@ -502,11 +507,11 @@ As it was highlighted in the previous section, according to the properties of th
 %\end{center}
 %\end{figure}
 
-In the case of C4G and W1G where the openness level is $0.646$ the standard error in both case is very hight. Since, we observe this problem only in the case where the problems has been reduced to binary, we are interested to see whether it is caused by choice of the document representation or by the choice of the similarity measure.
+%In the case of C4G and W1G where the openness level is $0.646$ the standard error in both case is %very hight. Since, we observe this problem only in the case where the problems has been reduced to %binary, we are interested to see whether it is caused by choice of the document representation or by %the choice of the similarity measure.
 
 %In figures \ref{fig:RFSE_MIXvsMinMax_W3GvsC4G_openness_test} the $F_{1}$ measure performance in %the openness test of the RFSE is depicted. In all three cases we see the only with MinMax %similarity the standard error is significantly high especially in the case of $0.646$ openness %level.
 
-Despite OCSVM's improvement when structured noise is used, it can only be competitive to RFSE on a high openness level, where all genre labels but one are considered unknown. This can be better viewed in figure \ref{fig:RFSE_vs_OCSVME_W1G_openness_test} where OCSVM is compared with RFSE models based on MinMax and Combo similarity measures for a varying openness level. These curves correspond to W1G features, so they are not the optimal models. However, they provide a fair comparison between examined methods. As standard error bars indicate, the performance of RFSE models with respect to the $F_{1}$ measure is significantly better than that of OCSVM while openness is less than $0.5$. Beyond that level, OCSVM is significantly better than RFSE models. Note also Combo measure helps RFSE in while openness is relatively low and MinMax seems to be a better choice when openness increases.
+%Despite OCSVM's improvement when structured noise is used, it can only be competitive to RFSE on a %high openness level, where all genre labels but one are considered unknown. This can be better %viewed in figure \ref{fig:RFSE_vs_OCSVME_W1G_openness_test} where OCSVM is compared with RFSE models %based on MinMax and Combo similarity measures for a varying openness level. These curves correspond %to W1G features, so they are not the optimal models. However, they provide a fair comparison between %examined methods. As standard error bars indicate, the performance of RFSE models with respect to %the $F_{1}$ measure is significantly better than that of OCSVM while openness is less than $0.5$. %Beyond that level, OCSVM is significantly better than RFSE models. Note also Combo measure helps %RFSE in while openness is relatively low and MinMax seems to be a better choice when openness %increases.
 
 %\begin{figure}[H]
 %\begin{center}
