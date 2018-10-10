@@ -297,7 +297,7 @@ In this study we are evaluating the performance of NNDR algorithm into the open-
 
 We perform  10-fold cross validation and in each fold we include the full set of 1,000 pages of noise. This evaluation strategy is giving a more realistic evaluation. Since the noise size is greater than the size of any genre included in the given genres collection.
 
-Initially we are comparing the perfomace of NNDR with RFSE on TF features vocabulary. RFSE returns higher score to NNDR, in tables \ref{tbl:NNDR_TF} and \ref{tbl:RFSE_TF}, for Macro-F1 and Macro-AUC and for any terms-type. However,
+Initially we are comparing the performance of NNDR with RFSE on TF features vocabulary. RFSE returns higher score to NNDR, in tables \ref{tbl:NNDR_TF} and \ref{tbl:RFSE_TF}, for Macro-F1 and Macro-AUC and for any terms-type. Note also that the TF feature model dimentions for both algorithm is in all cases a few tousants.
 
 \pagebreak
 
@@ -360,6 +360,10 @@ AUC & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.
 
 \pagebreak
 
+
+However, there is a notable difference in the behavior of the two algorithms where it seems to be the reason RFSE outperforms NNDR. NNDR is using the 5000 (with the exception of line 4 of table \ref{tbl:RFSE_TF}) most frequent features for both training and evaluation phases. RFSE is using about 1000 \textit{randomly selected features} from the 50,000-100,000 most frequent features. This observations leading as the conclusion that the textual-genre information is pervasive in several features of the texts irrespectively of their frequency. 
+
+In order to research our null hypothesis where the textual-genre infromation is pervasive in the correlation of the features and not only in their friequency, we employee the distrubutional features explaind above.
 
 %Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and %\ref{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS} depict the Precision-Recall curves (PRC) of %OCSVM and RFSE models, respectively. For each model and each one of the three document %representations, the parameters that maximize performance with respect to the $F_{1}$-measure are %used. Note that when recall does not reach 1.0 this means that some pages belonging to known classes %were classified as unknown. In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G %seems to be the best feature type for this corpus, followed by C4G. OCSVM performance is only %comparable with RFSE when W3G is used.
 
