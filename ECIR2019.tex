@@ -331,7 +331,7 @@ AUC & 500 & 0.5 & 300 & C4G & 10000 & 0.686 & 0.831 & 0.722 & 0.751 \\
 F1 & 10000 & 0.5 & 1000 & W1G & 50000 & 0.776 & 0.758 & 0.657 & 0.767 \\
 AUC & 1000 & 0.5 & 300 & W1G & 5000 & 0.618 & 0.807 & 0.673 & 0.700 \\
 F1 & 1000 & 0.7 & 100 & W3G & 50000 & 0.797 & 0.722 & 0.488 & 0.758 \\
-AUC & 1000 & 0.5 & 100 & W3G & 100000 & 0.657 & 0.805 & 0.696 & 0.723 \\
+AUC & 10000 & 0.5 & 100 & W3G & 100000 & 0.657 & 0.805 & 0.696 & 0.723 \\
 \hline
 \end{tabular}
 \caption {Maximum performance of RFSE on TF Features of SANTINIS coprus. FSS is the Features Subset Selection number. $\sigma$T is the sigma threhold of the RFSE. ITER is the number of iterations of the RFSE. T.TYPE is the Terms Type. DIMs is the features model's dimentions. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro Precision-Recall Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
@@ -353,7 +353,7 @@ F1 & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.6
 AUC & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.615 & 0.488 & 0.706 \\
 \hline
 \end{tabular}
-\caption {Maximum performance of NNDR on Distributional Features of SANTINIS coprus. STP, SUP, DRT, $\lambda$, T.TYPE, DIMs are the same as in table \ref{tbl:NNDR_TF}. MTF is the Minimum Threshold Fequency of the Distributional modles Vocabulary. WS is the Windows Size of the text sentece. $\alpha$ is the NNet parameter. EP is the epochs number of the NNet model. DEC is the decay paramter of the NNet model. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
+\caption {Maximum performance of NNDR on Distributional Features of SANTINIS coprus. STP, SUP, DRT, $\lambda$, T.TYPE, DIMs are the same as in table \ref{tbl:NNDR_TF}. MTF is the Minimum Threshold Fequency of the Distributional models Vocabulary. WS is the Windows Size of the text sentence. $\alpha$ is the NNet parameter. EP is the epochs number of the NNet model. DEC is the decay parameter of the NNet model. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
 \label{tbl:NNDR_Gensim}
 \vspace{-20mm}
 \end{table}
@@ -361,9 +361,24 @@ AUC & any & any & 0.8 & any & W3G & 100 & 3 & 3 & 0.025 & 10 & 0.02 & 0.827 & 0.
 \pagebreak
 
 
-However, there is a notable difference in the behavior of the two algorithms where it seems to be the reason RFSE outperforms NNDR. NNDR is using the 5000 (with the exception of line 4 of table \ref{tbl:RFSE_TF}) most frequent features for both training and evaluation phases. RFSE is using about 1000 \textit{randomly selected features} from the 50,000-100,000 most frequent features. This observations leading as the conclusion that the textual-genre information is pervasive in several features of the texts irrespectively of their frequency. 
+However, there is a notable difference in the behavior of the two algorithms where it seems to be the reason RFSE outperforms NNDR. NNDR is using the 5000 (with the exception of line 4 of table \ref{tbl:RFSE_TF}) most frequent features for both training and evaluation phases. RFSE is using about 1000 \textit{randomly selected features} from the 50,000 to 100,000 most frequent features. This observations leading as the conclusion that the textual-genre information is pervasive in several features of the texts irrespectively of their frequency.
 
-In order to research our null hypothesis where the textual-genre infromation is pervasive in the correlation of the features and not only in their friequency, we employee the distrubutional features explaind above.
+In order to research our null hypothesis where the textual-genre information is pervasive in the correlation of the features and not only in their frequency, we employee the distributional features explained above. Comparing tables \ref{tbl:NNDER_TF} and \ref{tbl:NNDER_Gensim} there is a notable improvement. Particularly for the Macro-F1 Score the performance reaches $0.7$ in all cases. Moreover, the STP, SUP and $\lambda$ parameters can my any of the set we have tested, on the contrary to the TF features model where only a specific value pare case is returning the maximum performance. Concerning TF model only when W3G terms-type is used we have a comparable $F1$ and $AUC$ value to the respective performance of the distributional model for NNDR.
+
+We have also examined the case where $AUC$ is maximized because it seems in \cite{pritsos2018open} study this measure is maximized when precision is maximized while the recall is kept as max as possible. As an example note line 6 at table \ref{tbl:NNDR_TF} where for W3G the precision can reach $0.738$ while recall only reduced to $0.604$ compare to the $0.664$ in the above line where F1 is maximized.
+
+The open-set classification framework evaluation design naturally turns our interest to the precision performance of the algorithms. To reason it we have to conceder that a classifier in a binary case should distinguish the \textit{known and the unkown web documents} are not belonging to the target class. In addition it has to recognize the the documents of the target class. Thus 2 out of 3 evaluation score naturally related to the precision score.
+
+In precision perspective it seems NNDR with distributional features outperforms RFSE in all case. In addition the size of features models dimension are 10 to 200 times smaller. NNDR returns $0.829$ macro-precsion score compare to $0.739$ of the RFSE, for C4G terms-type. Moreover, the maximum precision of RFSE is $0.797$ with $0.722$ recall while the respective recall for them maximum NNDR precision performance is $0.600$.
+
+The performance of NNDR (with distributional features) increases for $10\%$ on average for precision and decreases for $21.00\%$ compare to the RFSE. In addition, its performance increases for $7\%$ in precision and $37\%$ in recall compare to it self when TF feature model is used. Note that the only case where recall with TF features was better compare to distributional features is for W3G (see line 5 of table \ref{tbl:NNDR_TF}).
+
+
+
+
+
+
+
 
 %Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and %\ref{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS} depict the Precision-Recall curves (PRC) of %OCSVM and RFSE models, respectively. For each model and each one of the three document %representations, the parameters that maximize performance with respect to the $F_{1}$-measure are %used. Note that when recall does not reach 1.0 this means that some pages belonging to known classes %were classified as unknown. In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G %seems to be the best feature type for this corpus, followed by C4G. OCSVM performance is only %comparable with RFSE when W3G is used.
 
@@ -390,13 +405,13 @@ In order to research our null hypothesis where the textual-genre infromation is 
 
 %In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important %conclusion is that the optimization criterion plays a crucial role for the properties of the model %especially for RFSE. When AUC is maximized, recall is favoured. On the other hand, while $F_{1}$ is %maximized, precision is substantially increased. Fig.  \ref{fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows %the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter %settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong %decisions and leaves a large number of web pages unclassified. On the other hand, the model %optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known %genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that %prefers precision over recall and vice versa is an application-specific task.
 
-%\begin{figure}[H]
-%\begin{center}
-%    \includegraphics[scale=0.38]{diagrams/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
-%	\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}
-%	\label{fig:MacroPRC_RFSE_OCSVME_SANTINIS}
-%	\end{center}
-%\end{figure}
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.45]{NNDR_W3G_Best_RFSE-Baseline.eps}
+	\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}
+	\label{fig:NNDR_W3G_Best_RFSE_Baseline}
+	\end{center}
+\end{figure}
 %
 %% 7Genres
 %%

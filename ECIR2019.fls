@@ -396,6 +396,15 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
+INPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/NNDR_W3G_Best_RFSE-Baseline.eps
+INPUT ./NNDR_W3G_Best_RFSE-Baseline.eps
+INPUT ./NNDR_W3G_Best_RFSE-Baseline.eps
+INPUT ./NNDR_W3G_Best_RFSE-Baseline-eps-converted-to.pdf
+INPUT ./NNDR_W3G_Best_RFSE-Baseline-eps-converted-to.pdf
+INPUT ./NNDR_W3G_Best_RFSE-Baseline.eps
+INPUT ./NNDR_W3G_Best_RFSE-Baseline-eps-converted-to.pdf
+INPUT ./NNDR_W3G_Best_RFSE-Baseline-eps-converted-to.pdf
+INPUT ./NNDR_W3G_Best_RFSE-Baseline-eps-converted-to.pdf
 INPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl
 INPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.bbl
 INPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/ECIR2019/ECIR2019.aux
