@@ -77,11 +77,11 @@ Web genre detection is a task that can enhance information retrieval systems by 
 
 \section{Distributional Features Learning}\label{sec:Gensim}
 
-In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we ave implemented a special module inside our package, specialized for HTML preprocessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
+In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we ave implemented a special module inside our package, specialized for HTML prepossessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
 
 In order to compare our work to previews works, two different document representation types can be produced form our \textit{Gensim based sub-module}. One is PVBOW Word-n-grams and the other for PVBOW Character-n-grams, which are presented in our following experimental results.
 
-The PVBOW is a \textit{Neural Network} (NNet) where it is formed as a \textit{softmax} multi-class classifier approximating the formula or eq.\ref{eq:softmax}. PVBOW is trained using \textit{stochastic gradient descent} where the gradient is obtained via \textit{backpropagation}. The objective function of the NNet is the maximized \textit{average log probability} eq.\ref{eq:objFN}, given a sequence of training n-grams (word of character) $t_{1}, t_{2}, t_{3}, ..., t_{T}$.
+The PVBOW is a \textit{Neural Network} (NNet) where it is formed as a \textit{softmax} multi-class classifier approximating the formula or eq.\ref{eq:softmax}. PVBOW is trained using \textit{stochastic gradient descent} where the gradient is obtained via \textit{back-propagation}. The objective function of the NNet is the maximized \textit{average log probability} eq.\ref{eq:objFN}, given a sequence of training n-grams (word of character) $t_{1}, t_{2}, t_{3}, ..., t_{T}$.
 
 \begin{equation} \label{eq:objFN}
     \max{\frac{1}{T} \sum^{a=k}_{T-k}{\log{p(t_{a}|t_{a-k},...,t_{a+k})}}}
@@ -118,7 +118,7 @@ It is very important to note that the $c_{g}$ is trained in an open-set framewor
 \noindent
 where $D(x,y)$ is the distance between the samples where in this study is the \textit{Cosine Distance}.
 
-Therefore, the fitting function of the NN algorithm, described in pseudocode \ref{alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
+Therefore, the fitting function of the NN algorithm, described in pseudo-code \ref{alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
 
 \hfill \break
 
@@ -190,7 +190,7 @@ where $N$ is the size of the class tags set ${1,2,...,N}$ and $p$ is the percent
 
 The NNDR is a open-set classification algorithm, therefore, every random sample will be classified to one of the classes the NNRD has been fitted or to the unknown when its DR is greater then DRT. While training as explained above the DRT values are tested incrementally until the optimal data fitting for the training function.
 
-In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in pheudocode \ref{alg:NNDR_prediction}.
+In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in pseudo-code \ref{alg:NNDR_prediction}.
 
 \begin{algorithm}[H]
 \caption{\textit{Nearest Neighbor Distance Ratio} prediction function}\label{alg:NNDR_prediction}
@@ -228,7 +228,7 @@ Our implementation of the above NNRD algorithm can be found at \url{https://gith
 \section{Experiments}\label{sec:experimental_setup}
 
 \subsection{Open-set Evaluation Methodology}
-In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification when the web-documents used as input are \textit{Distributional Encodings of Fixed Size Vectors} derived from an PVBOW NNet model. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process.
+In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification when the web-documents used as input are \textit{Distributional Encoding of Fixed Size Vectors} derived from an PVBOW NNet model. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process.
 
 To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. Than is a modified version of precision and recall for open-set classification tasks proposed by \cite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
 
@@ -249,7 +249,7 @@ Note that in the evaluation process we both measuring two kind classification-as
 \subsection{Settings}\label{sec:evaluation_measures}
 Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments. The following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G).
 
-We use the Term-Frequency (TF) weighting scheme and Distributional Learning scheme. The feature space for TF is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. The TF-Vocabulary range of dimensions have been tested are $V_{TF}\textit{=\{5k,10k,50k,100k\}}$. The feature space in the Distributional model is preselected while the deep learning process of PVBOW model. The range of the models fixed dimensions has been tested are $D_{dim}\textit{=\{50,100,250,500,1000\}}$ based of previews studies related to the distributional features on Natural Language Processing domain where relatively small dimensions are used, compare to TF scheme.
+We use the Term-Frequency (TF) weighting scheme and Distributional Learning scheme. The feature space for TF is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. The TF-Vocabulary range of dimensions have been tested are $V_{TF}\textit{=\{5k,10k,50k,100k\}}$. The feature space in the Distributional model is pre-selected while the deep learning process of PVBOW model. The range of the models fixed dimensions has been tested are $D_{dim}\textit{=\{50,100,250,500,1000\}}$ based of previews studies related to the distributional features on Natural Language Processing domain where relatively small dimensions are used, compare to TF scheme.
 
 The DM vocabulary creation process is also driven by an internal terms \textit{vocabulary} which is used for eliminating the terms with lower than a preferred frequency and then discards the terms from the text window for the PVBOW (see section \ref{sec:Gensim}). In this study we have tested as the $TF_{min}=\{3,10\}$ minimum frequencies set. The text window tested was $P_{win}=\{3,8,20\}$ size set. In respect of PVBOW model, other (hyper-)parameter values put to a test were $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002, 0.02\}$.
 
@@ -366,7 +366,7 @@ In order to research our null hypothesis where the textual-genre information is 
 
 We have also examined the case where $AUC$ is maximized because it seems in \cite{pritsos2018open} study this measure is maximized when precision is maximized while the recall is kept as max as possible. As an example note line 6 at table \ref{tbl:NNDR_TF} where for W3G the precision can reach $0.738$ while recall only reduced to $0.604$ compare to the $0.664$ in the above line where F1 is maximized.
 
-The open-set classification framework evaluation design naturally turns our interest to the precision performance of the algorithms. To reason it we have to conceder that a classifier in a binary case should distinguish the \textit{known and the unkown web documents} are not belonging to the target class. In addition it has to recognize the the documents of the target class. Thus 2 out of 3 evaluation score naturally related to the precision score.
+The open-set classification framework evaluation design naturally turns our interest to the precision performance of the algorithms. To reason it we have to consider that a classifier in a binary case should distinguish the \textit{known and the unknown web documents} are not belonging to the target class. In addition it has to recognize the the documents of the target class. Thus 2 out of 3 evaluation score naturally related to the precision score.
 
 In precision perspective it seems NNDR with distributional features outperforms RFSE in all case. In addition the size of features models dimension are 10 to 200 times smaller. NNDR returns $0.829$ macro-precision score compare to $0.739$ of the RFSE, for C4G terms-type. Moreover, the maximum precision of RFSE is $0.797$ with $0.722$ recall while the respective recall for them maximum NNDR precision performance is $0.600$.
 
@@ -384,23 +384,23 @@ We further evaluated the performance of NNDR in respect of precision performance
 
 The NNDR-DF is starting higher from all the curves and it remains to $0.99$ precision for the $30\%$ of the corpus then it drops to the same level with the RFSE baseline and after $0.50\%$ drops below it. However, it remains over $0.80$ up to $60\%$ of the corpus. The the rest of the corpus is classified as unknown. RFSE manages to recognize correctly part of the corpus up to $80\%$ with the precision to drop to $0.70$ and then to $0.65$. Considering the NNDR-TF is significantly lower in performance compare to the base line and is also has a significant drop in performance for the first $10\%$ of the corpus. Given that the curves are calculated based on the ranked scores from the best performance to the lowest performance it seems that the algorithm significantly affected by the noise of the marked-unknown part. That is the algorithm makes very confident decision for some part of the corpus confusing them with other classes. Its overall performance is over $0.7$ precision and still recognize the $60\%$ of the corpus.
 
-To conclude it seems that distributional features are giving a significant increment in perfomance even for a pure performance and very algorithm as NN, particularly the NNDR, i.e. an open-set version of it. Still RFSE where has successfully used for  WGI and other NLP problems, is giving higher over all performance in respect of macro-F1 and AUC. However, in respcet of precision which is naturally more important for an open-set evaluation set the distributional features are offering higher or equal performance with 100 times smaller feature size. Moreover, considering the open-set framework as a filtering-setup for the algorithms one would probably prefer the NNDR-DF algorithm over RFSE.
+To conclude it seems that distributional features are giving a significant increment in performance even for a pure performance and very algorithm as NN, particularly the NNDR, i.e. an open-set version of it. Still RFSE where has successfully used for  WGI and other NLP problems, is giving higher over all performance in respect of macro-F1 and AUC. However, in respect of precision which is naturally more important for an open-set evaluation set the distributional features are offering higher or equal performance with 100 times smaller feature size. Moreover, considering the open-set framework as a filtering-setup for the algorithms one would probably prefer the NNDR-DF algorithm over RFSE.
 
 
 
 \section{Conclusions}\label{sec:conclusions}
 
-In this paper we presented an experimental study where is focused on the effect of distributional features on an open-set web-page document classification task. In contrast to vast majority of previous work in this area, we adopt the open-set scenario that is more realistic for  web-page classification since it is not feasible to construct a genre palette with all available genres and appropriate samples for each one of them. Particulary we are evaluating the possible performace improvement of an open-set algorithm when distributional features are employed, using the SANTINIS corpus.
+In this paper we presented an experimental study where is focused on the effect of distributional features on an open-set web-page document classification task. In contrast to vast majority of previous work in this area, we adopt the open-set scenario that is more realistic for  web-page classification since it is not feasible to construct a genre palette with all available genres and appropriate samples for each one of them. Particularly we are evaluating the possible performance improvement of an open-set algorithm when distributional features are employed, using the SANTINIS corpus.
 
-The open-set algorithm we have evaluated with distributional features input is a novel variation of Nearest Neighbors algortirthm named NNDR. A Distance Ration threshold is calculated while the training procedure for maximizing the \textit{Normilized Accuracy} of the known and the unknown classes.
+The open-set algorithm we have evaluated with distributional features input is a novel variation of Nearest Neighbors algorithm named NNDR. A Distance Ration threshold is calculated while the training procedure for maximizing the \textit{Normilized Accuracy} of the known and the unknown classes.
 
 Our evaluation methodology previews shown to be proper for evaluation open-set scenarios. The natural focus in an open-set evaluation framework is the macro-precision, since always there is a part of the corpus will be classified as unknown. Either because it is unknown (marked-as-unknown) or it is considered as outage while training.
 
-In our evalution distributional feature are giving a great imporement to the NNDR algorithm compare to it TF features performance. Moreover comparing it to the RFSE algorithm, our baseline, there is also an imporovemnt in repect of macro-precision with some cost to the recall performace. Overall NNDR from a very low performace compare to the baseline it is becoming a comparable choice.
+In our evaluation distributional feature are giving a great improvement to the NNDR algorithm compare to it TF features performance. Moreover comparing it to the RFSE algorithm, our baseline, there is also an improvement in respect of macro-precision with some cost to the recall performance. Overall NNDR from a very low performance compare to the baseline it is becoming a comparable choice.
 
-As concerns the terms-types, either fo the TF features model of the distribusitonal one in all cases W3G provided the maximum scores.
+As concerns the terms-types, either fo the TF features model of the distributional one in all cases W3G provided the maximum scores.
 distributional
-In this study we concluded that probably the distributional features is a prospective choise for the WGI research community. Thus, a farther research would be fruitfull focusing on several important aspects the selection of the similarity measures other than cosine we have used. There are also several variation and parameters for the distributionall features one can use, for instance we have used Bag-of-words-paragraph vectors for training on our NNet deep learning model.
+In this study we concluded that probably the distributional features is a prospective choice for the WGI research community. Thus, a farther research would be fruitful focusing on several important aspects the selection of the similarity measures other than cosine we have used. There are also several variation and parameters for the distributional features one can use, for instance we have used Bag-of-words-paragraph vectors for training on our NNet deep learning model.
 
 Finally it almost became tradition to be underlined that there is a need for a well formed corpus specialized for the WGI task. We need larger corpora including multiple genre labels. In addition there is a need for a constant updating of this corpus to capture the new trends in the genre pallet of the web itself, since new genre classes are added and the current ones are rapidly changing context, as naturally the human communication is reformed in a temporal manner.
 
