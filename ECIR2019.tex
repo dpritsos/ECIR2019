@@ -25,27 +25,21 @@
 
 \begin{document}
 
-\title{Deep Learning Distributional Features for Noise Handling in Open-set Web-genre Classification}
+\title{Open-set Web Genre Identification Using Distributional Features and Nearest Neighbors Distance Ratio}
 
 \author{Dimitrios Pritsos \and Efstathios Stamatatos }
 
-\institute{Dimitrios Pritsos \at
-            University of the Aegean\\
+\institute{ University of the Aegean\\
             Karlovassi, Samos \textendash{} 83200, Greece.\\
-            \email{dpritsos@aegean.gr}
-            \and
-           Efstathios Stamatatos \at
-            University of the Aegean\\
-            Karlovassi, Samos \textendash{} 83200, Greece.\\
-            \email{stamatatos@aegean.gr}
+            \email{\{dpritsos,stamatatos\}@aegean.gr}
 }
 
 \maketitle
 
 \begin{abstract}
-Web genre detection is a task that can enhance information retrieval systems by providing rich descriptions of documents and enabling more specialized queries. Most of previous studies in this field adopt the closed-set scenario where a given palette comprises all available genre labels. However this is not a realistic setup since web genres are constantly enriched with new labels and existing web genres are evolving in time. Open-set classification, where some pages used in the evaluation phase do not belong to any of the known genres, is a more realistic setup for this task. In this case, all pages not belonging to known genres can be seen as noise. This paper focuses on systematic evaluation of  open-set web genre identification when the noise is either structured or unstructured. Two open-set methods combined with alternative text representation schemes and similarity measures are tested based on two benchmark corpora. Moreover, we adopt the openness test for web genre identification that enables the observation of effectiveness for a varying number of known/unknown labels.
+Web genre identification can enhance information retrieval systems by providing rich descriptions of documents and enabling more specialized queries. The open-set scenario is more realistic for this task since web genres evolve in time and it is not feasible to define a universally agreed genre palette. In this paper, we propose a novel approach based on distributional features acquired by doc2vec and a recently-proposed open-set classification algorithm, nearest neighbors distance ratio. We present experimental results using a benchmark corpus and a strong baseline and demonstrate that the proposed approach is competitive especially when emphasis is given on precision.
 
-\keywords{Web Genre Identification \and Information Retrieval \and Natural Language Processing}
+\keywords{Web genre identification \and Open-set classification \and Distributional features}
 \end{abstract}
 
 
@@ -77,11 +71,11 @@ Web genre detection is a task that can enhance information retrieval systems by 
 
 \section{Distributional Features Learning}\label{sec:Gensim}
 
-In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we ave implemented a special module inside our package, specialized for HTML prepossessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
+In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we have implemented a special module inside our package, specialized for HTML prepossessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
 
 In order to compare our work to previews works, two different document representation types can be produced form our \textit{Gensim based sub-module}. One is PVBOW Word-n-grams and the other for PVBOW Character-n-grams, which are presented in our following experimental results.
 
-The PVBOW is a \textit{Neural Network} (NNet) where it is formed as a \textit{softmax} multi-class classifier approximating the formula or eq.\ref{eq:softmax}. PVBOW is trained using \textit{stochastic gradient descent} where the gradient is obtained via \textit{back-propagation}. The objective function of the NNet is the maximized \textit{average log probability} eq.\ref{eq:objFN}, given a sequence of training n-grams (word of character) $t_{1}, t_{2}, t_{3}, ..., t_{T}$.
+The PVBOW is a \textit{Neural Network} (NNet) where it is formed as a \textit{softmax} multi-class classifier approximating the formula of eq.\ref{eq:softmax}. PVBOW is trained using \textit{stochastic gradient descent} where the gradient is obtained via \textit{back-propagation}. The objective function of the NNet is the maximized \textit{average log probability} eq.\ref{eq:objFN}, given a sequence of training n-grams (word of character) $t_{1}, t_{2}, t_{3}, ..., t_{T}$.
 
 \begin{equation} \label{eq:objFN}
     \max{\frac{1}{T} \sum^{a=k}_{T-k}{\log{p(t_{a}|t_{a-k},...,t_{a+k})}}}
